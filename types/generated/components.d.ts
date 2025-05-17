@@ -6,33 +6,36 @@ export interface SharedBlocks extends Struct.ComponentSchema {
     description: '';
     displayName: 'blocks';
   };
-  attributes: {
-    CTA: Schema.Attribute.Component<'shared.cta', false>;
-    ImageBlock: Schema.Attribute.Component<'shared.image-block', false>;
-    TextBlock: Schema.Attribute.Component<'shared.text-block', false>;
-  };
+  attributes: {};
 }
 
-export interface SharedCta extends Struct.ComponentSchema {
-  collectionName: 'components_shared_ctas';
+export interface SharedImages extends Struct.ComponentSchema {
+  collectionName: 'components_shared_images';
   info: {
-    displayName: 'CTA';
+    displayName: 'Images';
   };
   attributes: {
-    label: Schema.Attribute.String;
-    url: Schema.Attribute.String;
-  };
-}
-
-export interface SharedImageBlock extends Struct.ComponentSchema {
-  collectionName: 'components_shared_image_blocks';
-  info: {
-    displayName: 'ImageBlock';
-  };
-  attributes: {
-    media: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
+    client_cover_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    client_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    client_logo1: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    client_logo2: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    client_transition_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    fallback_thumbnail: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    favicon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    thumbnail_path: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
     >;
   };
 }
@@ -75,15 +78,12 @@ export interface SharedRichText extends Struct.ComponentSchema {
 export interface SharedSeo extends Struct.ComponentSchema {
   collectionName: 'components_shared_seos';
   info: {
-    description: '';
-    displayName: 'Seo';
-    icon: 'allergies';
-    name: 'Seo';
+    displayName: 'seo';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -99,23 +99,19 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedTest extends Struct.ComponentSchema {
-  collectionName: 'components_shared_tests';
+export interface SharedStyles extends Struct.ComponentSchema {
+  collectionName: 'components_shared_styles';
   info: {
-    displayName: 'test';
+    displayName: 'styles';
   };
   attributes: {
-    test: Schema.Attribute.String;
-  };
-}
-
-export interface SharedTextBlock extends Struct.ComponentSchema {
-  collectionName: 'components_shared_text_blocks';
-  info: {
-    displayName: 'TextBlock';
-  };
-  attributes: {
-    text: Schema.Attribute.String;
+    background_color: Schema.Attribute.String;
+    font_color: Schema.Attribute.String;
+    font_color_dark: Schema.Attribute.String;
+    font_family: Schema.Attribute.String;
+    mode: Schema.Attribute.String;
+    primary_color: Schema.Attribute.String;
+    secondary_color: Schema.Attribute.String;
   };
 }
 
@@ -123,15 +119,13 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.blocks': SharedBlocks;
-      'shared.cta': SharedCta;
-      'shared.image-block': SharedImageBlock;
+      'shared.images': SharedImages;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
-      'shared.test': SharedTest;
-      'shared.text-block': SharedTextBlock;
+      'shared.styles': SharedStyles;
     }
   }
 }

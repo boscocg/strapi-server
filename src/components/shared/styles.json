@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_shared_styles",
+  "info": {
+    "displayName": "styles"
+  },
+  "options": {},
+  "attributes": {
+    "font_family": {
+      "type": "string"
+    },
+    "primary_color": {
+      "type": "string"
+    },
+    "secondary_color": {
+      "type": "string"
+    },
+    "font_color": {
+      "type": "string"
+    },
+    "background_color": {
+      "type": "string"
+    },
+    "font_color_dark": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    }
+  }
+}
