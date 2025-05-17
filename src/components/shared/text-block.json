@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_text_blocks",
+  "info": {
+    "displayName": "TextBlock"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  }
+}

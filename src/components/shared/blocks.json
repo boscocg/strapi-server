@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_blocks",
+  "info": {
+    "displayName": "blocks",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "CTA": {
+      "displayName": "CTA",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta"
+    },
+    "ImageBlock": {
+      "displayName": "ImageBlock",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.image-block"
+    },
+    "TextBlock": {
+      "displayName": "TextBlock",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.text-block"
+    }
+  }
+}
