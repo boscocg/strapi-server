@@ -35,6 +35,30 @@
     "Ref": {
       "type": "uid",
       "targetField": "Title"
+    },
+    "has_login": {
+      "type": "boolean"
+    },
+    "campaing": {
+      "type": "string"
+    },
+    "allow_multiple": {
+      "type": "boolean"
+    },
+    "send_base64_to_n8n": {
+      "type": "boolean"
+    },
+    "toten_default_slug": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "about": {
+      "type": "text"
+    },
+    "terms": {
+      "type": "text"
     }
   }
 }

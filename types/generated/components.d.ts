@@ -102,6 +102,7 @@ export interface SharedSlider extends Struct.ComponentSchema {
 export interface SharedStyles extends Struct.ComponentSchema {
   collectionName: 'components_shared_styles';
   info: {
+    description: '';
     displayName: 'styles';
   };
   attributes: {
@@ -110,6 +111,8 @@ export interface SharedStyles extends Struct.ComponentSchema {
     font_color_dark: Schema.Attribute.String;
     font_family: Schema.Attribute.String;
     mode: Schema.Attribute.String;
+    position_redirect_image: Schema.Attribute.String;
+    position_rescue_image: Schema.Attribute.String;
     primary_color: Schema.Attribute.String;
     secondary_color: Schema.Attribute.String;
   };

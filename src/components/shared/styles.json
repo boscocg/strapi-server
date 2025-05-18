@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_styles",
   "info": {
-    "displayName": "styles"
+    "displayName": "styles",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -24,6 +25,12 @@
       "type": "string"
     },
     "mode": {
+      "type": "string"
+    },
+    "position_rescue_image": {
+      "type": "string"
+    },
+    "position_redirect_image": {
       "type": "string"
     }
   }

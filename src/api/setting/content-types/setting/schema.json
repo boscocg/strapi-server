@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "settings",
+  "info": {
+    "singularName": "setting",
+    "pluralName": "settings",
+    "displayName": "Settings",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title_wait_page": {
+      "type": "string"
+    },
+    "subtitle_wait_page": {
+      "type": "string"
+    },
+    "toten_default_slug": {
+      "type": "string"
+    }
+  }
+}
