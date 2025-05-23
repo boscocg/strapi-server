@@ -11,36 +11,29 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Styles": {
+    "styles": {
       "displayName": "styles",
       "type": "component",
       "repeatable": false,
       "component": "shared.styles"
     },
-    "Images": {
+    "images": {
       "displayName": "Images",
       "type": "component",
       "repeatable": false,
       "component": "shared.images"
     },
-    "SEO": {
+    "seo": {
       "displayName": "seo",
       "type": "component",
       "repeatable": false,
       "component": "shared.seo"
     },
-    "Ref": {
-      "type": "uid",
-      "targetField": "Title"
-    },
     "has_login": {
       "type": "boolean"
-    },
-    "campaing": {
-      "type": "string"
     },
     "allow_multiple": {
       "type": "boolean"
@@ -51,14 +44,24 @@
     "toten_default_slug": {
       "type": "string"
     },
-    "slug": {
-      "type": "string"
-    },
     "about": {
       "type": "text"
     },
     "terms": {
       "type": "text"
+    },
+    "client": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::client.client"
+    },
+    "toten": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::toten.toten"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }

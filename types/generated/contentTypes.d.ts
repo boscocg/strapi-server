@@ -399,6 +399,39 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiClientClient extends Struct.CollectionTypeSchema {
+  collectionName: 'clients';
+  info: {
+    description: '';
+    displayName: 'Client';
+    pluralName: 'clients';
+    singularName: 'client';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cnpj: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Component<'shared.images', false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::client.client'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    styles: Schema.Attribute.Component<'shared.styles', false>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
@@ -444,12 +477,12 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   attributes: {
     about: Schema.Attribute.Text;
     allow_multiple: Schema.Attribute.Boolean;
-    campaing: Schema.Attribute.String;
+    client: Schema.Attribute.Relation<'oneToOne', 'api::client.client'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     has_login: Schema.Attribute.Boolean;
-    Images: Schema.Attribute.Component<'shared.images', false>;
+    images: Schema.Attribute.Component<'shared.images', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -457,13 +490,13 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Ref: Schema.Attribute.UID<'Title'>;
     send_base64_to_n8n: Schema.Attribute.Boolean;
-    SEO: Schema.Attribute.Component<'shared.seo', false>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.String;
-    Styles: Schema.Attribute.Component<'shared.styles', false>;
+    styles: Schema.Attribute.Component<'shared.styles', false>;
     terms: Schema.Attribute.Text;
-    Title: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    toten: Schema.Attribute.Relation<'oneToOne', 'api::toten.toten'>;
     toten_default_slug: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -496,6 +529,33 @@ export interface ApiSettingSetting extends Struct.CollectionTypeSchema {
     subtitle_wait_page: Schema.Attribute.String;
     title_wait_page: Schema.Attribute.String;
     toten_default_slug: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTotenToten extends Struct.CollectionTypeSchema {
+  collectionName: 'totens';
+  info: {
+    displayName: 'Toten';
+    pluralName: 'totens';
+    singularName: 'toten';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    code: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::toten.toten'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.String;
+    title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1012,9 +1072,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::client.client': ApiClientClient;
       'api::global.global': ApiGlobalGlobal;
       'api::project.project': ApiProjectProject;
       'api::setting.setting': ApiSettingSetting;
+      'api::toten.toten': ApiTotenToten;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

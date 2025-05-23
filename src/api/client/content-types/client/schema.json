@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "singularName": "client",
+    "pluralName": "clients",
+    "displayName": "Client",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "styles": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.styles"
+    },
+    "images": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.images"
+    },
+    "cnpj": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    }
+  }
+}

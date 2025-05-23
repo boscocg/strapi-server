@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "totens",
+  "info": {
+    "singularName": "toten",
+    "pluralName": "totens",
+    "displayName": "Toten"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string"
+    }
+  }
+}
